@@ -25,11 +25,18 @@ class ViewController: UIViewController {
 
     @IBAction func convertYearsButtonPressed(sender: UIButton) {
         let yearsFromTextField = Double((ageOfHumanTextField.text as NSString).doubleValue)
-        let conversionConstant = 7.0
+        var realDogYears: Double
+        
+        if yearsFromTextField > 2{
+            realDogYears = (10.5 * 2) + (4 * (yearsFromTextField-2))
+        }
+        else{
+            realDogYears = (10.5 * yearsFromTextField)
+        }
+        
         ageOfHumanTextField.resignFirstResponder()
         convertedAgeLabel.hidden = false
-        convertedAgeLabel.text = "\(yearsFromTextField * conversionConstant)" + " In Dog Years"
-        
+        convertedAgeLabel.text = "\(realDogYears)" + " In Dog Years"
     }
 
 }
