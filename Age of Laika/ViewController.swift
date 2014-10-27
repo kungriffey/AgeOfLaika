@@ -10,6 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var convertedAgeLabel: UILabel!
+    @IBOutlet weak var ageOfHumanTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +23,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func convertYearsButtonPressed(sender: UIButton) {
+        let yearsFromTextField = Double((ageOfHumanTextField.text as NSString).doubleValue)
+        let conversionConstant = 7.0
+        ageOfHumanTextField.resignFirstResponder()
+        convertedAgeLabel.hidden = false
+        convertedAgeLabel.text = "\(yearsFromTextField * conversionConstant)" + " In Dog Years"
+        
+    }
 
 }
 
